@@ -50,7 +50,7 @@ async function getTracks(token, tracksEndPoint) {
 
     const result = await fetch(`${tracksEndPoint}?limit=${limit}`, {
         method: 'GET',
-        headers: {'Authorization' : 'Bearer' + token}
+        headers: {'Authorization' : 'Bearer ' + token}
     });
 
     const data = result.json();
@@ -61,7 +61,7 @@ async function getTrack(token, tracksEndPoint) {
 
     const result = await fetch(`${tracksEndPoint}`, {
         method: 'GET',
-        headers: {'Authorization' : 'Bearer' + token}
+        headers: {'Authorization' : 'Bearer ' + token}
     });
 
     const data = result.json();
