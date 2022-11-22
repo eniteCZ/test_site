@@ -66,12 +66,13 @@ async function getTrack(token, tracksEndPoint) {
 
 
 
-const token = await getToken();
+const token = getToken();
 console.log("Getting playlist for Rock")
-const playlists = await getPlaylistsByGenre(token, "0JQ5DAqbMKFDXXwE9BDJAr", 1);
+const playlists = getPlaylistsByGenre(token, "0JQ5DAqbMKFDXXwE9BDJAr", 1);
 console.log("Getting tracks from:" + playlist);
 const plalylistSg = playlists.tracks.href
-const tracks = await getTracks(token, plalylistSg);
+console.log(playlist)
+const tracks = getTracks(token, plalylistSg);
 tracks.forEach(element => {
     console.log(element)    
 });
