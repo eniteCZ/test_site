@@ -77,5 +77,4 @@ async function init(){
         console.log(element)    
     })
 }
-
 init();
