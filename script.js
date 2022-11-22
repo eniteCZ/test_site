@@ -46,7 +46,7 @@ async function getPlaylistsByGenre(token, genreId, limit) {
 
 async function getTracks(token, tracksEndPoint) {
 
-    const limit = 10;
+    const limit = "10";
 
     const result = await fetch(`${tracksEndPoint}?limit=${limit}`, {
         method: 'GET',
