@@ -50,11 +50,11 @@ async function getTracks(token, tracksEndPoint) {
 
     const result = await fetch(`${tracksEndPoint}?limit=${limit}`, {
         method: 'GET',
-        headers: {'Authorization' : 'Bearer ' + token}
+        headers: { 'Authorization' : 'Bearer ' + token}
     });
 
     const data = result.json();
-    return data.items;
+    return data;
 }
 
 async function getTrack(token, tracksEndPoint) {
@@ -70,7 +70,7 @@ async function getTrack(token, tracksEndPoint) {
 
 
 
-async function init(){
+async function initSongs(){
     const token = await getToken();
     console.log(token)
     console.log("Getting playlist for Rock")
@@ -79,15 +79,33 @@ async function init(){
     console.table(playlists);
     const plalylistSg = "https://api.spotify.com/v1/playlists/37i9dQZF1DXcF6B6QPhFDv/tracks"
     const tracks = await getTracks(token, plalylistSg);
-    return tracks
+    console.table(tracks.items)
+    
+    return tracks.items
 }
 
-async function main(){
-    const songs = await init();
-    console.table(songs)
-    tracks.forEach(element => {
-        console.log(element)    
+async function songNamesArray(){
+    const songs = await initSongs();
+    const array = [];
+    songs.forEach(element => {
+        array.push(element.track.name)
     })
+    return(array)
+    //console.log(array)
 }
 
-main();
+
+// UI Handling
+async function init(){
+    const submit = document.querySelector('#submit');
+
+    let songArray = initSongs();
+    submit.addEventListener('click', (e) => {
+        e.preventDefault();
+        console.log(songArray);
+    })
+
+}
+
+document.addEventListener('DOMContentLoaded', async () => init());
+songNamesArray();
