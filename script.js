@@ -74,7 +74,8 @@ async function init(){
     const token = await getToken();
     console.log("Getting playlist for Rock")
     const playlists = await getPlaylistsByGenre(token, "0JQ5DAqbMKFDXXwE9BDJAr", 1);
-    console.log("Getting tracks from:" + playlists);
+    console.log("Getting tracks from:");
+    console.table(playlists.data);
     const plalylistSg = playlists.tracks.href
     const tracks = await getTracks(token, plalylistSg);
     tracks.forEach(element => {
