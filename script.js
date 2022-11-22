@@ -73,6 +73,7 @@ console.log("Getting tracks from:" + playlist);
 const plalylistSg = playlists.tracks.href
 console.log(playlist)
 const tracks = getTracks(token, plalylistSg);
+console.log("Printing tracks:")
 tracks.forEach(element => {
     console.log(element)    
 });
