@@ -74,9 +74,9 @@ async function init(){
     const token = await getToken();
     console.log(token)
     console.log("Getting playlist for Rock")
-    const playlists = await getPlaylistsByGenre(token, "0JQ5DAqbMKFDXXwE9BDJAr", 1);
+    //const playlists = await getPlaylistsByGenre(token, "0JQ5DAqbMKFDXXwE9BDJAr", 1);
     console.log("Getting tracks from:");
-    console.table(playlists);
+    //console.table(playlists);
     const plalylistSg = "https://api.spotify.com/v1/playlists/37i9dQZF1DXcF6B6QPhFDv/tracks"
     const tracks = await getTracks(token, plalylistSg);
     return tracks
