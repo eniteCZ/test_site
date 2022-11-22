@@ -99,7 +99,7 @@ async function songNamesArray(){
 async function init(){
     const submit = document.querySelector('#submit');
 
-    let songArray = initSongs();
+    let songArray = songNamesArray();
     submit.addEventListener('click', (e) => {
         e.preventDefault();
         console.log(songArray);
@@ -108,4 +108,3 @@ async function init(){
 }
 
 document.addEventListener('DOMContentLoaded', async () => init());
-songNamesArray();
