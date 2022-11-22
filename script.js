@@ -79,7 +79,12 @@ async function init(){
     console.table(playlists);
     const plalylistSg = "https://api.spotify.com/v1/playlists/37i9dQZF1DXcF6B6QPhFDv/tracks"
     const tracks = await getTracks(token, plalylistSg);
-    console.table(tracks)
-    
+    return tracks
 }
-init();
+
+async function main(){
+    const songs = await init();
+    console.table(songs)
+}
+
+main();
